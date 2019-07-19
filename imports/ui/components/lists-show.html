@@ -1,0 +1,57 @@
+<template name="Lists_show">
+  <div class="page lists-show">
+      <nav class="js-title-nav">
+        {{#momentum plugin="fade"}}
+          <div class="nav-group">
+              <a href="#" class="js-menu nav-item">
+                  <span class="material-icons" title="">list</span>
+              </a>
+          </div>
+
+          <h1 class="js-edit-list title-page">
+              <span class="title-wrapper">{{list.name}}</span>
+              <span class="count-list">{{todos.length}}</span>
+          </h1>
+          <div class="progress">
+              <div class="determinate" style="width: {{ count }}%"></div>
+          </div>
+        {{/momentum}}
+          <form class="js-todo-new todo-new input-symbol">
+              <div class="row input-field col s12">
+                  <i class="material-icons prefix js-todo-add">add_circle_outline</i>
+                  <div class="input-field col s6 m6 select" name="select">
+                      <select type="select">
+                          <option value="" disabled selected>Choose your option</option>
+                        {{#each item in options}}
+                          <option value="{{ item.value }}">{{ item.name }}</option>
+                        {{/each}}
+                      </select>
+                  </div>
+                  <div class="input-field col s6 m6">
+                      <i class="material-icons prefix">mode_edit</i>
+                      <input id="icon_edit" type="text" class="validate">
+                      <label for="icon_edit">Value</label>
+                  </div>
+              </div>
+          </form>
+      </nav>
+
+
+
+      <div class="content-scrollable list-items">
+        {{#if todosReady}}
+            <ul class="collection">
+            {{#each item in todos}}
+                <li class="collection-item avatar">
+                    <img src="#" alt="" class="circle">
+                    <span class="title">{{ item.name }}</span>
+                    <p>{{ item.value }}</p>
+                    <a href="#!" class="secondary-content"><i class="material-icons">send</i></a>
+                </li>
+            {{/each}}
+            </ul>
+        {{/if}}
+      </div>
+
+  </div>
+</template>

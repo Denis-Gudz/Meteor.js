@@ -1,0 +1,30 @@
+<template name="App_body">
+{{#HammerTouchArea gestureMap=templateGestures}}
+    <div id="container" class="{{menuOpen}} {{cordova}}">
+        <section id="menu">
+            <div class="list-todos">
+                {{#each list in lists}}
+                    <a href="{{pathFor 'Lists.show' id=list.id }}" title="{{list.name}}"
+                       class="list-todo {{activeListClass list.id}}">
+                        {{list.name}}
+
+                        {{#if todosLength list.id}}
+                            <span class="count-list">{{todosLength list.id}}</span>
+                        {{/if}}
+                    </a>
+                {{/each}}
+            </div>
+        </section>
+        <div class="content-overlay"></div>
+
+        <div id="content-container">
+            {{#momentum plugin="fade"}}
+                {{#if Template.subscriptionsReady}}
+                    {{> Template.dynamic template=main}}
+                {{else}}
+                {{/if}}
+            {{/momentum}}
+        </div>
+    </div>
+{{/HammerTouchArea}}
+</template>

@@ -1,0 +1,1 @@
+export const Indicats = new Ground.Collection('indicats', { connection:null });

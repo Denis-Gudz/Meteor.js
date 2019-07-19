@@ -1,0 +1,54 @@
+<template name="All_lists_show">
+  <div class="page lists-show">
+      <nav class="js-title-nav">
+          <div class="nav-group">
+              <a href="#" class="js-menu nav-item">
+                  <span class="material-icons" title="">list</span>
+              </a>
+          </div>
+
+          <h1 class="js-edit-list title-page">
+              <span class="title-wrapper">Показатели</span>
+              <span class="count-list">{{lists.length}}</span>
+          </h1>
+      </nav>
+
+      <div class="content-scrollable list-items">
+        {{#each list in lists}}
+        <ul class="collapsible" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header">
+                    <i class="material-icons">filter_drama</i>
+                    {{ list.name }}
+                    <span class="new badge" data-badge-caption="">{{ todosLength list }}</span>
+                </div>
+
+                <div class="progress all-lists">
+                    <div class="determinate" style="width: {{ count list }}%"></div>
+                </div>
+
+                <div class="collapsible-body">
+                    <table class="bordered">
+                        <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>#</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {{#each item in todos list}}
+                            <tr>
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.value }}</td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+        </ul>
+        {{/each}}
+      </div>
+  </div>
+</template>
