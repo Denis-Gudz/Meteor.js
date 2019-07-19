@@ -18,8 +18,10 @@
         {{/momentum}}
           <form class="js-todo-new todo-new input-symbol">
               <div class="row input-field col s12">
-                  <i class="material-icons prefix js-todo-add">add_circle_outline</i>
-                  <div class="input-field col s6 m6 select" name="select">
+                    <div class="col s1 m1">
+                      <i class="material-icons prefix js-todo-add">add_circle_outline</i>
+                    </div>
+                  <div class="input-field col s5 m5 select" name="select">
                       <select type="select">
                           <option value="" disabled selected>Choose your option</option>
                         {{#each item in options}}
